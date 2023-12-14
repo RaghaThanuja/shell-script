@@ -17,5 +17,5 @@ then
     echo "ERROR: : Installing mysql is failed"
     exit 1    
 else
-    echo"Installing mysql is success"
+    echo "Installing mysql is success"
 fi    

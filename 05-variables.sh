@@ -1,6 +1,7 @@
 #!/biin/bash
 
-USERNAME=$1
-PASSWORD=$2
+echo "please enter your username"
 
-echo "username is $USERNAME, password is $PASSWORD"
+read USERNAME #the value entered above will be automatically attached to USERNAME variable
+
+echo "username is $USERNAME"

@@ -8,6 +8,8 @@ N="\e[0m"
 
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
+echo "Script started executing at $TIMESTAMP" &>> $LOGFILE
+
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
@@ -20,7 +22,7 @@ VALIDATE(){
 
 if [ $ID -ne 0 ]
 then
-    echo "$R ERROR:: Please run this script with access $N"
+    echo -e "$R ERROR:: Please run this script with root access $N"
         exit 1 # you can give other than 0
 else
     echo "You are root user"
@@ -33,5 +35,3 @@ VALIDATE $? "Installing mysql"
 yum install git -y &>> $LOGFILE
 
 VALIDATE $? "Installing git"
-
-

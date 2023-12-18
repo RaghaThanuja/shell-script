@@ -15,5 +15,6 @@ then
     do
         echo "username: $username"
         echo "user ID: $user_id"
-        echo "user Full name: $user_fullname
-    done <<< $file    
+        echo "user Full name: $user_fullname"
+
+    done < $file    

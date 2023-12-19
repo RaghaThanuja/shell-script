@@ -10,10 +10,21 @@ USAGE(){
     echo " -w, specify the wishes.  ex, Good Morning"
     echo " -h, Display Help and Exit"
 }
+
 while getopts ":n:w:h" opt; do
     case $opt in
         n) NAME="$OPTARG";;
         w) WISHES="$OPTARG";;
-        h|*) USAGE; exit;;
+        \?) echo "invalid options: -"$OPTARG"" >&2; USAGE; exit;;
+        :) USAGE; exit;;
+        h) USAGE; exit;;
     esac
-done               
+done 
+
+if [ -Z "$NAME" ] || [ -Z "$WISHES" ]; then
+    echo " ERROR: Both -n and -w are mandatory options."
+    USAGE
+    exit 1
+fi
+
+echo "Hello $NAME. $WISHES. I have been learning shell script."
